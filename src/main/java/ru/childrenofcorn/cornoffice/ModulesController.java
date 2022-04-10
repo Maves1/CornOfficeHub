@@ -1,20 +1,20 @@
 package ru.childrenofcorn.cornoffice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.childrenofcorn.modules.RealTemperatureSensor;
 import ru.childrenofcorn.modules.TemperatureSensor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.*;
+import ru.childrenofcorn.modules.Sensor;
 
 @RestController
 public class ModulesController {
 
-    TemperatureSensor sensor = new RealTemperatureSensor();
+    @Autowired
+    private ModulesService modulesService;
 
     @RequestMapping("/get_module/{module}")
-    public TemperatureSensor getModuleData(@PathVariable String module) {
-        return sensor;
+    public Sensor getModuleData(@PathVariable String module) {
+        return modulesService.getSensor(module);
     }
 }
