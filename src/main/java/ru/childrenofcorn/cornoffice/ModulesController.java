@@ -4,13 +4,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.childrenofcorn.modules.RealTemperatureSensor;
 import ru.childrenofcorn.modules.TemperatureSensor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-public class ModulesService {
+@RestController
+public class ModulesController {
 
     TemperatureSensor sensor = new RealTemperatureSensor();
 
     @RequestMapping("/get_module/{module}")
     public float getModuleData(@PathVariable String module) {
-        return sensor.getCurrentTemperature();
+        return 28.8f;
     }
 }
