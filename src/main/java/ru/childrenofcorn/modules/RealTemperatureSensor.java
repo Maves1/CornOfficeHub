@@ -4,8 +4,18 @@ import java.time.*;
 
 public class RealTemperatureSensor implements TemperatureSensor {
 
+    private float currentTemperature;
+
+    public RealTemperatureSensor() {
+        currentTemperature = 28.8f;
+    }
+
     @Override
     public float getCurrentTemperature() {
-        return 23.4f;
+        return currentTemperature;
+    }
+
+    public void setCurrentTemperature(float currentTemperature) {
+        this.currentTemperature = currentTemperature;
     }
 }
