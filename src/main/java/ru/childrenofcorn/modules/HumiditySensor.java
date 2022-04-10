@@ -14,7 +14,7 @@ public class HumiditySensor extends Sensor {
         float scalingValue = 5;
         int lowerBoundary = 45;
 
-        float sin = (float) Math.sin(System.currentTimeMillis() / 1000 % Math.PI);
+        float sin = (float) Math.sin(System.currentTimeMillis() / 10000 % Math.PI);
         this.value = (sin + 1) * scalingValue + lowerBoundary;
 
         return this.value;
