@@ -2,6 +2,7 @@ package ru.childrenofcorn.cornoffice;
 
 import java.util.*;
 import org.springframework.stereotype.Service;
+import ru.childrenofcorn.modules.HumiditySensor;
 import ru.childrenofcorn.modules.Sensor;
 import ru.childrenofcorn.modules.TemperatureSensor;
 
@@ -12,6 +13,7 @@ public class ModulesService {
 
     public ModulesService() {
         modules.put("temperaturesensor", new TemperatureSensor());
+        modules.put("humiditysensor", new HumiditySensor());
     }
 
     public Sensor getSensor(String sensorName) {
