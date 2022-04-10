@@ -9,4 +9,14 @@ public class HumiditySensor extends Sensor {
         value = 55;
     }
 
+    @Override
+    public float getValue() {
+        float scalingValue = 5;
+        int lowerBoundary = 45;
+
+        float sin = (float) Math.sin(System.currentTimeMillis() / 1000 % Math.PI);
+        this.value = (sin + 1) * scalingValue + lowerBoundary;
+
+        return this.value;
+    }
 }
